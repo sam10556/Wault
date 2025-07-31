@@ -9,31 +9,30 @@ function App() {
     minutes: 0,
     seconds: 0,
   });
-
+  const targetDate = new Date("July 31,2025 00:00:00").getTime();
   // Countdown Timer
-  useEffect(() => {
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 3);
+useEffect(() => {
+ // Replace with your actual date/time
 
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-      if (distance < 0) {
-        clearInterval(interval);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      } else {
-        setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((distance / (1000 * 60)) % 60),
-          seconds: Math.floor((distance / 1000) % 60),
-        });
-      }
-    }, 1000);
+    if (distance < 0) {
+      clearInterval(interval);
+      setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    } else {
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((distance / (1000 * 60)) % 60),
+        seconds: Math.floor((distance / 1000) % 60),
+      });
+    }
+  }, 1000);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, []);
 
   // Trigger animations
   useEffect(() => {
