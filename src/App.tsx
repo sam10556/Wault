@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import HowItWorks from "./component/HowItWorks";
 import Header from "./component/Header";
 import Hero from "./component/Hero";
@@ -9,48 +9,48 @@ import Showcase from "./component/Showcase";
 import AboutUs from "./component/AboutUs";
 
 function App() {
-  const [showComingSoon, setShowComingSoon] = useState(false);
-  const [animatePunchline, setAnimatePunchline] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-  const targetDate = new Date("Aug 4,2025 06:00:00").getTime();
-  // Countdown Timer
-useEffect(() => {
- // Replace with your actual date/time
+//   const [showComingSoon, setShowComingSoon] = useState(false);
+//   const [animatePunchline, setAnimatePunchline] = useState(false);
+//   const [timeLeft, setTimeLeft] = useState({
+//     days: 0,
+//     hours: 0,
+//     minutes: 0,
+//     seconds: 0,
+//   });
+//   const targetDate = new Date("Aug 4,2025 06:00:00").getTime();
+//   // Countdown Timer
+// useEffect(() => {
+//  // Replace with your actual date/time
 
-  const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
+//   const interval = setInterval(() => {
+//     const now = new Date().getTime();
+//     const distance = targetDate - now;
 
-    if (distance < 0) {
-      clearInterval(interval);
-      setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-    } else {
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((distance / (1000 * 60)) % 60),
-        seconds: Math.floor((distance / 1000) % 60),
-      });
-    }
-  }, 1000);
+//     if (distance < 0) {
+//       clearInterval(interval);
+//       setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+//     } else {
+//       setTimeLeft({
+//         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+//         hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+//         minutes: Math.floor((distance / (1000 * 60)) % 60),
+//         seconds: Math.floor((distance / 1000) % 60),
+//       });
+//     }
+//   }, 1000);
 
-  return () => clearInterval(interval);
-}, []);
+//   return () => clearInterval(interval);
+// }, []);
 
-  // Trigger animations
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setAnimatePunchline(true);
-      setTimeout(() => setShowComingSoon(true), 600);
-    }, 3000);
+//   // Trigger animations
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       setAnimatePunchline(true);
+//       setTimeout(() => setShowComingSoon(true), 600);
+//     }, 3000);
 
-    return () => clearTimeout(timeout);
-  }, []);
+//     return () => clearTimeout(timeout);
+//   }, []);
 
   return (
     // <div className="min-h-screen animated-background bg-gradient-to-r from-black via-gray-900 to-black text-white flex items-center justify-center relative overflow-hidden px-4">
