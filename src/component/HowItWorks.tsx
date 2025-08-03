@@ -1,97 +1,81 @@
-import { Package, Fingerprint, Bell, CheckCircle } from 'lucide-react';
+import {
+  PackageCheck,
+  Fingerprint,
+  LockKeyhole,
+  WifiOff,
+} from "lucide-react";
+
+const steps = [
+  {
+    title: "Package Drop",
+    description:
+      "The delivery person drops your package into the top compartment.",
+    icon: PackageCheck,
+  },
+  {
+    title: "Auto Lock",
+    description: "The top locks automatically after closing. No apps needed.",
+    icon: LockKeyhole,
+  },
+  {
+    title: "Fingerprint Unlock",
+    description: "You open the bottom compartment using your fingerprint.",
+    icon: Fingerprint,
+  },
+  {
+    title: "No Internet Required",
+    description: "No Wi-Fi, no apps — just secure, simple tech.",
+    icon: WifiOff,
+  },
+];
 
 const HowItWorks = () => {
-  const steps = [
-    {
-      icon: Package,
-      title: "Delivery Arrives",
-      description: "Driver drops your package in the Wault using their secure delivery code.",
-      step: "01"
-    },
-    {
-      icon: Bell,
-      title: "You Get Notified",
-      description: "Instant notification hits your phone - no more wondering if your stuff arrived.",
-      step: "02"
-    },
-    {
-      icon: Fingerprint,
-      title: "Scan & Access",
-      description: "Walk up, scan your finger, and boom - your package is ready to grab.",
-      step: "03"
-    },
-    {
-      icon: CheckCircle,
-      title: "Secure & Done",
-      description: "Wault automatically locks and resets for the next delivery. It's that simple.",
-      step: "04"
-    }
-  ];
-
   return (
-    <section id="how-it-works" className="py-24 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-4">
+    <section id="how-it-works" className="relative bg-gray-900 py-32 text-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-24">
+          <h2 className="text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4">
             How It Works
-            <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"> (It's Actually Easy)</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            We made it dummy simple because nobody got time for complicated setups. Here's the tea on how Wault works.
+          <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+            Wault is your smart parcel keeper built for real life. We made it
+            simple because nobody has time for complicated setups.
           </p>
         </div>
 
-        <div className="relative">
-          {/* Connection lines */}
-          <div className="hidden lg:block absolute top-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
-            <svg className="w-full h-24" viewBox="0 0 800 100">
-              <path
-                d="M100 50 Q250 20 400 50 T700 50"
-                stroke="url(#gradient)"
-                strokeWidth="2"
-                fill="none"
-                className="opacity-30"
-              />
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#3B82F6" />
-                  <stop offset="50%" stopColor="#8B5CF6" />
-                  <stop offset="100%" stopColor="#10B981" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+        {/* Zigzag section */}
+        <div className="relative w-full h-80">
+          {/* SVG Line */}
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 800 400"><path d="M96.86097717285156,5.381160736083984C113.98653770446776,23.699545955657957,239.21523765563967,198.03586475133895,277.1300354003906,198.20626831054688C315.0448331451416,198.3766718697548,454.0448307800293,7.089680156707764,495.964111328125,7.174882411956787C537.8833918762207,7.260084667205811,697.2555767822265,180.86995023965835,718.3856201171875,199.10313415527344" fill="none" stroke-width="1" stroke="url(&quot;#SvgjsLinearGradient1008&quot;)" stroke-linecap="round"></path><defs><linearGradient id="SvgjsLinearGradient1008"><stop stop-color="hsl(230, 55%, 50%)" offset="0"></stop><stop stop-color="hsl(230, 55%, 70%)" offset="1"></stop></linearGradient></defs></svg>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-gray-600 transition-all duration-300 hover:transform hover:scale-105">
-                  <div className="relative mb-6">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
-                      <step.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-sm font-bold text-black">
-                      {step.step}
-                    </div>
+          {/* Step Cards */}
+          <div className="absolute inset-0 flex justify-between items-center px-10">
+            {steps.map((step, index) => {
+              const isUp = index % 2 === 0;
+              return (
+                <div
+                  key={index}
+                  className={`w-56 p-5 bg-gray-800/70 border border-gray-700 rounded-2xl backdrop-blur-md text-center pointer-events-auto transition-transform duration-300 hover:scale-105 ${
+                    isUp ? "translate-y-[-100px]" : "translate-y-[100px]"
+                  }`}
+                >
+                  <div className="w-14 h-14 mx-auto mb-3 flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+                    <step.icon className="w-6 h-6 text-white" />
                   </div>
-                  
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    {step.title}
-                  </h3>
-                  
-                  <p className="text-gray-400 leading-relaxed">
-                    {step.description}
-                  </p>
+                  <h3 className="font-semibold text-xl">{step.title}</h3>
+                  <p className="text-lg text-gray-400">{step.description}</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center px-6 py-3 bg-gray-800/30 border border-gray-700 rounded-full backdrop-blur-sm">
-            <span className="text-green-400 font-semibold mr-2">✨</span>
-            <span className="text-gray-300">Average setup time: 5 minutes</span>
+        {/* Footer note */}
+        <div className="text-center mt-15">
+          <div className="inline-flex items-center px-6 py-3 rounded-full backdrop-blur-sm mt-10">
+            <span className="text-green-400 font-semibold mr-2"></span>
+            <span className="text-gray-300 text-2xl"></span>
           </div>
         </div>
       </div>

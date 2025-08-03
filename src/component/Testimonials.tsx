@@ -23,27 +23,6 @@ const Testimonials = () => {
       text: "OK but like... why didn't someone invent this sooner? Wault is a whole vibe. My delivery anxiety is completely gone and my packages are always safe. It's giving main character energy fr.",
       avatar: "JK"
     },
-    {
-      name: "Sam Williams",
-      location: "Seattle, WA",
-      rating: 5,
-      text: "Wault hits different! The app integration is clean, setup was dummy easy, and my whole building is jealous. This is the future of deliveries no cap.",
-      avatar: "SW"
-    },
-    {
-      name: "Riley Thompson",
-      location: "Denver, CO",
-      rating: 5,
-      text: "I was skeptical at first but Wault really said 'let me change your life' and delivered. Weather-proof, secure, and the fingerprint scanner is so satisfying to use!",
-      avatar: "RT"
-    },
-    {
-      name: "Casey Johnson",
-      location: "Miami, FL",
-      rating: 5,
-      text: "Wault is the definition of 'it just works.' Clean design, reliable AF, and customer service actually cares. This product is absolutely sending me! ✨",
-      avatar: "CJ"
-    }
   ];
 
   return (
