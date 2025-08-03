@@ -9,7 +9,7 @@ function App() {
     minutes: 0,
     seconds: 0,
   });
-  const targetDate = new Date("Aug 4,2025 00:00:00").getTime();
+  const targetDate = new Date("Aug 4,2025 06:00:00").getTime();
   // Countdown Timer
 useEffect(() => {
  // Replace with your actual date/time
