@@ -13,7 +13,7 @@ const Features = () => {
       icon: Shield,
       title: "Weather Proof",
       description:
-        "Rain or shine, your packages stay fresh. This thing is literally built different.",
+        "Rain or shine, Wault's got you covered. This thing is literally built different.",
       color: "green",
     },
     {

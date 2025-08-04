@@ -36,7 +36,9 @@ const Header = () => {
 
             {/* Brand Name */}
             <span className="text-2xl font-bold bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent tracking-wide">
+              <a href="#">
               WAULT
+              </a>
             </span>
           </div>
 

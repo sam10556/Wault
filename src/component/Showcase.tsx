@@ -4,7 +4,7 @@ const Showcase = () => {
         <div className="max-w-6xl mx-auto text-center space-y-10">
           {/* Headline */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+            <h2 className="text-4xl md:text-5xl mb-4">
               See Wault in Action
             </h2>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">

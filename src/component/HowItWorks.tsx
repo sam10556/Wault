@@ -1,9 +1,4 @@
-import {
-  PackageCheck,
-  Fingerprint,
-  LockKeyhole,
-  WifiOff,
-} from "lucide-react";
+import { PackageCheck, Fingerprint, LockKeyhole, WifiOff } from "lucide-react";
 
 const steps = [
   {
@@ -31,7 +26,10 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="relative bg-gray-900 py-32 text-white overflow-hidden">
+    <section
+      id="how-it-works"
+      className="relative bg-gray-900 py-32 text-white overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-24">
@@ -45,9 +43,27 @@ const HowItWorks = () => {
         </div>
 
         {/* Zigzag section */}
-        <div className="relative w-full h-80">
+        <div className="relative hidden lg:block w-full h-80">
           {/* SVG Line */}
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 800 400"><path d="M96.86097717285156,5.381160736083984C113.98653770446776,23.699545955657957,239.21523765563967,198.03586475133895,277.1300354003906,198.20626831054688C315.0448331451416,198.3766718697548,454.0448307800293,7.089680156707764,495.964111328125,7.174882411956787C537.8833918762207,7.260084667205811,697.2555767822265,180.86995023965835,718.3856201171875,199.10313415527344" fill="none" stroke-width="1" stroke="url(&quot;#SvgjsLinearGradient1008&quot;)" stroke-linecap="round"></path><defs><linearGradient id="SvgjsLinearGradient1008"><stop stop-color="hsl(230, 55%, 50%)" offset="0"></stop><stop stop-color="hsl(230, 55%, 70%)" offset="1"></stop></linearGradient></defs></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            viewBox="0 0 800 400"
+          >
+            <path
+              d="M96.86097717285156,5.381160736083984C113.98653770446776,23.699545955657957,239.21523765563967,198.03586475133895,277.1300354003906,198.20626831054688C315.0448331451416,198.3766718697548,454.0448307800293,7.089680156707764,495.964111328125,7.174882411956787C537.8833918762207,7.260084667205811,697.2555767822265,180.86995023965835,718.3856201171875,199.10313415527344"
+              fill="none"
+              stroke-width="1"
+              stroke='url("#SvgjsLinearGradient1008")'
+              stroke-linecap="round"
+            ></path>
+            <defs>
+              <linearGradient id="SvgjsLinearGradient1008">
+                <stop stop-color="hsl(230, 55%, 50%)" offset="0"></stop>
+                <stop stop-color="hsl(230, 55%, 70%)" offset="1"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
 
           {/* Step Cards */}
           <div className="absolute inset-0 flex justify-between items-center px-10">
@@ -71,11 +87,27 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        {/* Footer note */}
-        <div className="text-center mt-15">
-          <div className="inline-flex items-center px-6 py-3 rounded-full backdrop-blur-sm mt-10">
-            <span className="text-green-400 font-semibold mr-2"></span>
-            <span className="text-gray-300 text-2xl"></span>
+        <div className="relative lg:hidden">
+          <div className="grid grid-cols-1 gap-10 ">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="w-full max-w-xl mx-auto p-6 bg-gray-800/70 border border-gray-700 rounded-2xl backdrop-blur-md text-center"
+              >
+                <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+                  <step.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-semibold text-xl mb-2">{step.title}</h3>
+                <p className="text-lg text-gray-400">{step.description}</p>
+              </div>
+            ))}
+          </div>
+          {/* Footer note */}
+          <div className="text-center mt-15">
+            <div className="inline-flex items-center px-6 py-3 rounded-full backdrop-blur-sm mt-10">
+              <span className="text-green-400 font-semibold mr-2"> </span>
+              <span className="text-gray-300 text-2xl"></span>
+            </div>
           </div>
         </div>
       </div>
