@@ -8,7 +8,7 @@ import Testimonials from "./component/Testimonials";
 import Footer from "./component/Footer";
 import Showcase from "./component/Showcase";
 import AboutUs from "./component/AboutUs";
-import FAQ from "./component/FAQ";
+// import FAQ from "./component/FAQ";
 import GlowingCursor from "./component/GlowingCursor";
 
 function App() {
