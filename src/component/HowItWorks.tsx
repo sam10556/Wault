@@ -33,7 +33,7 @@ const HowItWorks = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 garamond">
             How It Works
           </h2>
           <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
