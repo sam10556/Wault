@@ -21,7 +21,7 @@ const products: Product[] = [
     image: "/p1.png",
   },
   {
-    id: 1,
+    id: 2,
     name: "Wault Royal Blue",
     description:
       "Sleek, durable iron box with fingerprint-secured access to protect your deliveries.",
@@ -29,7 +29,7 @@ const products: Product[] = [
     image: "/b1.png",
   },
   {
-    id: 1,
+    id: 3,
     name: "Wault Golden Duo",
     description:
       "Sleek, durable iron box with fingerprint-secured access to protect your deliveries.",
@@ -98,7 +98,6 @@ const ShopPage: React.FC = () => {
         </p>
 
         {/* Product Grid */}
-        {/* Product Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <div
@@ -113,18 +112,18 @@ const ShopPage: React.FC = () => {
               <h2 className="text-lg font-semibold mb-1">{product.name}</h2>
               <p className=" text-gray-400 mb-4">{product.description}</p>
               <div className="flex flex-col items-center justify-between w-full mt-auto">
-                <span className="text-sm font-medium">
+                <span className="text-sm font-semibold text-gray-100">
                   ₹{product.price.toLocaleString("en-IN")}
                 </span>
-                <span className="text-xs text-gray-400 mb-2">
+                <span className="text-xs italic text-gray-400 mt-1 mb-3">
                   11,999 on EMI, ₹1,200/month for 10 months
                 </span>
                 <button
                   onClick={() => addToCart(product)}
-                  className="text-gray-300 hover:text-white p-1 rounded focus:outline-none focus:ring-1 focus:ring-gray-500"
+                  className="text-gray-300 hover:text-white p-2 rounded-full focus:outline-none focus:ring-1 focus:ring-gray-500 transition"
                   aria-label={`Add ${product.name} to cart`}
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w-6 h-6" />
                 </button>
               </div>
             </div>
