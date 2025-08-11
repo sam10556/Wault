@@ -32,33 +32,33 @@ const AboutUs = () => {
               </p>
               <p>
                 <span className="text-white font-medium">Coordinator:</span>{" "}
-                Samar
+                Samarpratap Parmar
               </p>
               <p>
                 <span className="text-white font-medium">
                   Design & Visuals:
                 </span>{" "}
-                Krisha, Vishwa
+                Krisha Khimaniya, Vishwa Patel
               </p>
               <p>
                 <span className="text-white font-medium">Marketing:</span>{" "}
-                Niraj, Anshul
+                Niraj Lodhiya, Anshul Ramani
               </p>
               <p>
-                <span className="text-white font-medium">Finance Manager:</span>{" "}
-                Niket
+                <span className="text-white font-medium">Finance Managers:</span>{" "}
+                Krish Dave, Niket Kakkad
               </p>
               <p>
                 <span className="text-white font-medium">
                   Social Media Manager:
                 </span>{" "}
-                Falak
+                Falak Lakhani
               </p>
               <p>
                 <span className="text-white font-medium">
-                  Business Strategists:
+                  Business Strategist:
                 </span>{" "}
-                Ruhaan
+                Ruhaan Ruparel
               </p>
             </div>
           </div>

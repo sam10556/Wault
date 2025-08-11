@@ -10,6 +10,8 @@ import Showcase from "./component/Showcase";
 import AboutUs from "./component/AboutUs";
 // import FAQ from "./component/FAQ";
 import GlowingCursor from "./component/GlowingCursor";
+import Chatbot from "./component/Chatbot";
+import ProductGallery from "./component/ProductDisplay";
 
 function App() {
   const [showPunchline, setShowPunchline] = useState(true);
@@ -32,11 +34,13 @@ function App() {
         <Header />
         <Hero />
         <Showcase />
+        <ProductGallery/>
         <Features />
         <HowItWorks />
         <AboutUs />
         <Testimonials />
         <Footer />
+        <Chatbot/>
         <GlowingCursor/>
       </motion.div>
 
@@ -45,7 +49,7 @@ function App() {
         {showPunchline && (
           <motion.div
             key="punchline"
-            className="fixed inset-0 bg-black text-white flex items-center justify-center z-50"
+            className="fixed inset-0 bg-gradient-to-b from-black via-gray-900 to-black text-white flex items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ y: "-100%" }}

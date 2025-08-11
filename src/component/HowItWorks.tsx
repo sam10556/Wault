@@ -28,7 +28,7 @@ const HowItWorks = () => {
   return (
     <section
       id="how-it-works"
-      className="relative bg-gray-900 py-32 text-white overflow-hidden"
+      className="relative bg-gradient-to-b from-black to-gray-900 py-32 text-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}

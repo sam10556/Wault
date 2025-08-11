@@ -1,19 +1,6 @@
-import { useState, useEffect } from "react";
-
 const Hero = () => {
   const fullText =
     "Fingerprint-secured. Weatherproof. Built for modern deliveries. Never miss a package again.";
-  const [displayText, setDisplayText] = useState("");
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayText((prev) => prev + fullText[i]);
-      i++;
-      if (i >= fullText.length) clearInterval(interval);
-    }, 30); // typing speed
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden text-white">
@@ -39,10 +26,9 @@ const Hero = () => {
           WAULT
         </h1>
 
-        {/* Futuristic Typewriter Text */}
-        <p className="text-lg md:text-2xl text-gray-300 max-w-3xl leading-relaxed">
-          <span className="tracking-wide">{displayText}</span>
-          <span className="animate-pulse text-blue-400">|</span>
+        {/* Static Tagline */}
+        <p className="text-lg md:text-2xl text-gray-300 max-w-3xl leading-relaxed tracking-wide">
+          {fullText}
         </p>
 
         {/* CTA */}
