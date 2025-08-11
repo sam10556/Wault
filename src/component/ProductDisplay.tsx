@@ -124,6 +124,11 @@ const ProductCarousel: React.FC = () => {
           ▶
         </button>
       </div>
+      <a
+          href="/cart"
+          className="mt-10 inline-block px-8 py-3 text-lg font-medium text-white border border-white/50 rounded-full backdrop-blur-sm bg-white/10 hover:bg-white/20 hover:border-white transition-all duration-300"
+        >
+Buy Now        </a>
     </div>
   );
 };

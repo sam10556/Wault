@@ -1,9 +1,23 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+interface NavLink {
+  label: string;
+  section: string;
+}
+
+const navLinks: NavLink[] = [
+  { label: "Showcase", section: "showcase" },
+  { label: "Features", section: "features" },
+  { label: "How It Works", section: "how-it-works" },
+  { label: "About Us", section: "about" },
+];
+
+const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +26,17 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
+    }
+  };
+
+  const isCartPage = location.pathname === "/cart";
+  const cartLink = isCartPage ? "/" : "/cart";
 
   return (
     <header
@@ -36,102 +61,72 @@ const Header = () => {
 
             {/* Brand Name */}
             <span className="text-2xl font-bold bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent tracking-wide">
-              <a href="#">
-              WAULT
-              </a>
+              <Link to="/">WAULT</Link>
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-4">
-            <a
-              href="#showcase"
-              className="text-gray-300 hover:text-white transition-colors"
+          <nav className="hidden md:flex items-center space-x-6">
+            {!isCartPage &&
+              navLinks.map(({ label, section }) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className="text-gray-300 hover:text-white transition-colors text-2xl m-6 group relative w-max"
+                  type="button"
+                >
+                  <span>{label}</span>
+                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
+                </button>
+              ))}
+            <Link
+              to={cartLink}
+              className="text-gray-300 hover:text-white transition-colors flex items-center"
+              aria-label="Shopping Cart"
             >
-              <p className="text-2xl m-6 group relative w-max">
-                <span>Showcase</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
-              </p>
-            </a>
-            <a
-              href="#features"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <p className="text-2xl m-6 group relative w-max">
-                <span>Features</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
-              </p>
-            </a>
-            <a
-              href="#how-it-works"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <p className="text-2xl m-6 group relative w-max">
-                <span>How It Works</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
-              </p>
-            </a>
-            <a
-              href="#about"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <p className="text-2xl m-6 group relative w-max">
-                <span>About Us</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
-              </p>
-            </a>
+              <ShoppingCart className="w-6 h-6" />
+            </Link>
           </nav>
 
-          <button
-            className="md:hidden text-gray-300 hover:text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          {!isCartPage && (
+            <button
+              className="md:hidden text-gray-300 hover:text-white"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              type="button"
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          )}
         </div>
 
-        {isMenuOpen && (
+        {isMenuOpen && !isCartPage && (
           <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
-            <a
-              href="#showcase"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <p className="text-2xl m-6 group relative w-max">
-                <span>Showcase</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
-              </p>
-            </a>
-            <a
-              href="#features"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <p className="text-2xl m-6 group relative w-max">
-                <span>Features</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
-              </p>
-            </a>
-            <a
-              href="#how-it-works"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <p className="text-2xl m-6 group relative w-max">
-                <span>How It Works</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
-              </p>
-            </a>
-            <a
-              href="#about"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <p className="text-2xl m-6 group relative w-max">
-                <span>About Us</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
-              </p>
-            </a>
+              {navLinks.map(({ label, section }) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className="text-gray-300 hover:text-white transition-colors text-2xl m-6 group relative w-max"
+                  type="button"
+                >
+                  <span>{label}</span>
+                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
+                </button>
+              ))}
+
+              {/* Mobile Cart Link */}
+              <Link
+                to={cartLink}
+                className="text-gray-300 hover:text-white transition-colors flex items-center m-6"
+                aria-label="Shopping Cart"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <ShoppingCart className="w-6 h-6 mr-2" />
+                Cart
+              </Link>
             </div>
           </div>
         )}

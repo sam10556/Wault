@@ -2,7 +2,7 @@ const Showcase = () => {
   return (
     <section
       id="showcase"
-      className="min-h-screen bg-black text-white py-20 px-6 flex items-center"
+      className="min-h-screen bg-gradient-to-b to-black from-gray-900 text-white py-20 px-6 flex items-center"
     >
       <div className="max-w-6xl mx-auto text-center space-y-10 w-full">
         {/* Headline */}
