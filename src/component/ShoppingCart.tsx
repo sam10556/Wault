@@ -17,7 +17,7 @@ const products: Product[] = [
     name: "Wault Matte-Black",
     description:
       "Sleek, durable iron box with fingerprint-secured access to protect your deliveries.",
-    price: 11000,
+    price: 10999,
     image: "/p1.png",
   },
   {
@@ -25,7 +25,7 @@ const products: Product[] = [
     name: "Wault Royal Blue",
     description:
       "Sleek, durable iron box with fingerprint-secured access to protect your deliveries.",
-    price: 11000,
+    price: 10999,
     image: "/b1.png",
   },
   {
@@ -33,7 +33,7 @@ const products: Product[] = [
     name: "Wault Golden Duo",
     description:
       "Sleek, durable iron box with fingerprint-secured access to protect your deliveries.",
-    price: 11000,
+    price: 10999,
     image: "/y1.png",
   },
 ];
@@ -98,6 +98,7 @@ const ShopPage: React.FC = () => {
         </p>
 
         {/* Product Grid */}
+        {/* Product Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <div
@@ -110,12 +111,13 @@ const ShopPage: React.FC = () => {
                 className="w-96 h-96 object-contain mb-6"
               />
               <h2 className="text-lg font-semibold mb-1">{product.name}</h2>
-              <p className=" text-gray-400 mb-4">
-                {product.description}
-              </p>
-              <div className="flex items-center justify-between w-full mt-auto">
+              <p className=" text-gray-400 mb-4">{product.description}</p>
+              <div className="flex flex-col items-center justify-between w-full mt-auto">
                 <span className="text-sm font-medium">
                   ₹{product.price.toLocaleString("en-IN")}
+                </span>
+                <span className="text-xs text-gray-400 mb-2">
+                  11,999 on EMI, ₹1,200/month for 10 months
                 </span>
                 <button
                   onClick={() => addToCart(product)}
