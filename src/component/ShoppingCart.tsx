@@ -193,7 +193,7 @@ const ShopPage: React.FC = () => {
           )}
 
           <div className="mt-6 text-center text-gray-500 italic text-sm">
-            More security products coming soon...
+            Stocking Up Soon...
           </div>
         </div>
       </div>
